@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <div class="product">
+    <div class="product__item">
+      <div class="product__item__pic set-bg" th:data-setbg="'img/product/product-' + ${stat.index + 1} + '.jpg'">
+        <ul class="product__hover">
+          <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
+        </ul>
+      </div>
+      <div class="product__item__text">
+        <h6 th:text="${product.nameProduct}"></h6>
+        <a th:href="'/product/product-details?id=' + ${product.id}" class="add-cart">+Xem Chi Tiết</a>
+        <div class="sold">
+          Đã bán: <span>1000</span>
+        </div>
+        <h5 class="price" th:text="${product.productPrice}"></h5>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
