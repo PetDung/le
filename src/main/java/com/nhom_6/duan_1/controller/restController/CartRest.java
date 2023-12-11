@@ -3,6 +3,7 @@ package com.nhom_6.duan_1.controller.restController;
 import com.nhom_6.duan_1.model.req.CartReq;
 import com.nhom_6.duan_1.service.BillService;
 import com.nhom_6.duan_1.serviceImp.BillServiceImp;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ public class CartRest {
     @Autowired
     BillServiceImp billService;
     @PostMapping("/update")
-    public ResponseEntity<?> update(@RequestBody CartReq entity) {
+    public ResponseEntity<?> update(@RequestBody CartReq entity, HttpSession session) {
         try {
             billService.updateCart(entity);
             return ResponseEntity.ok("successfully updated");
@@ -29,7 +30,7 @@ public class CartRest {
                                  @RequestParam("color")Long color,
                                  @RequestParam("size")Long size) {
         try {
-            billService.addCart(entity,7L,size,color);
+            billService.addCart(entity,userid,size,color);
             return ResponseEntity.ok("successfully add");
         } catch (Exception e) {
             e.printStackTrace();

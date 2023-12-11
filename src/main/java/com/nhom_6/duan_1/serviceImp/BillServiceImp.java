@@ -72,6 +72,7 @@ public class BillServiceImp implements BillService {
         ProductReq prd = cartReq.getData().get(0);
         User u = userService.getById(userId);
         if (cart == null){
+            System.out.println("ysse");
             cart = new Bill();
             cart.setUser(u);
             cart.setStatus("GIO_HANG");
